@@ -1,0 +1,253 @@
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <header class="font-semibold text-xl md:text-sm dark:text-white">
+    <div class="flex justify-center gap-3 md:gap-6 text-center">
+      <div class="mt-5">
+        <a
+          href=""
+          class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
+          data-translate="experience"
+        >
+          Experiencia
+        </a>
+      </div>
+      <div class="mt-5">
+        <a
+          href=""
+          class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
+          data-translate="projects"
+        >
+          Proyectos
+        </a>
+      </div>
+      <div class="mt-5">
+        <a
+          href=""
+          class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
+          data-translate="about"
+        >
+          Sobre mí
+        </a>
+      </div>
+      <div class="mt-5">
+        <a
+          href=""
+          class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
+          data-translate="contact"
+        >
+          Contacto
+        </a>
+      </div>
+      <div class="mt-5 relative">
+        <button
+          id="language-toggle"
+          class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300 flex items-center"
+        >
+          <span id="current-language">ES</span>
+          <svg
+            class="w-4 h-4 ml-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div
+          id="language-dropdown"
+          class="absolute hidden mt-2 py-2 w-24 bg-gray-100 dark:bg-slate-950 rounded-md shadow-xl"
+        >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
+            data-lang="es">Español</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
+            data-lang="en">English</a
+          >
+        </div>
+      </div>
+      <div class="mt-5">
+        <button
+          id="theme-toggle"
+          class="dark:hover:text-sky-300 hover:text-sky-500 hover:scale-125 ease-in-out transition-all duration-300 flex items-center"
+        >
+          <span id="current-theme" class="sr-only" data-translate="changeTheme">Cambiar tema</span>
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+</html>
+
+<script>
+  const languageToggle = document.getElementById("language-toggle");
+  const languageDropdown = document.getElementById("language-dropdown");
+  const currentLanguage = document.getElementById("current-language");
+
+  const translations = {
+    es: {
+      experience: "Experiencia",
+      projects: "Proyectos",
+      about: "Sobre mí",
+      contact: "Contacto",
+      changeTheme: "Cambiar tema",
+      changeToDarkMode: "Cambiar a modo oscuro",
+      changeToLightMode: "Cambiar a modo claro"
+      // Añade aquí más traducciones para otros elementos de la página
+    },
+    en: {
+      experience: "Experience",
+      projects: "Projects",
+      about: "About me",
+      contact: "Contact",
+      changeTheme: "Change theme",
+      changeToDarkMode: "Change to dark mode",
+      changeToLightMode: "Change to light mode"
+      // Añade aquí más traducciones para otros elementos de la página
+    }
+  };
+
+  function translatePage(lang: 'es' | 'en') {
+    document.querySelectorAll("[data-translate]").forEach(element => {
+      if (element instanceof HTMLElement) {
+        const key = element.getAttribute("data-translate");
+        if (key && key in translations[lang]) {
+          element.textContent = translations[lang][key as keyof typeof translations['es']];
+        }
+      }
+    });
+
+    document.body.querySelectorAll('*').forEach(element => {
+      if (element instanceof HTMLElement && element.childNodes.length === 1 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
+        const text = element.textContent?.trim();
+        if (text) {
+          const translation = findTranslation(text, lang);
+          if (translation) {
+            element.textContent = translation;
+          }
+        }
+      }
+    });
+  }
+
+  function findTranslation(text: string, targetLang: 'es' | 'en'): string | undefined {
+    const sourceLang = targetLang === 'es' ? 'en' : 'es';
+    for (const [key, value] of Object.entries(translations[sourceLang])) {
+      if (value === text) {
+        return translations[targetLang][key as keyof typeof translations['es']];
+      }
+    }
+    return undefined;
+  }
+
+  if (languageToggle && languageDropdown && currentLanguage) {
+    languageToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      languageDropdown.classList.toggle("hidden");
+    });
+
+    languageDropdown.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (e.target instanceof HTMLElement) {
+          const lang = e.target.getAttribute("data-lang");
+          if (lang === 'es' || lang === 'en') {
+            currentLanguage.textContent = lang.toUpperCase();
+            languageDropdown.classList.add("hidden");
+            translatePage(lang);
+            document.documentElement.lang = lang;
+          }
+        }
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (
+        e.target instanceof Node &&
+        !languageDropdown.contains(e.target) &&
+        e.target !== languageToggle
+      ) {
+        languageDropdown.classList.add("hidden");
+      }
+    });
+  }
+
+  const themeToggle = document.getElementById("theme-toggle");
+  const currentTheme = document.getElementById("current-theme");
+
+  if (themeToggle && currentTheme) {
+    const toggleTheme = () => {
+      const lang = document.documentElement.lang as 'es' | 'en';
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        currentTheme.textContent = translations[lang].changeToDarkMode;
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        currentTheme.textContent = translations[lang].changeToLightMode;
+      }
+    };
+
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+      currentTheme.textContent = translations[document.documentElement.lang as 'es' | 'en'].changeToLightMode;
+    } else {
+      currentTheme.textContent = translations[document.documentElement.lang as 'es' | 'en'].changeToDarkMode;
+    }
+
+    themeToggle.addEventListener("click", toggleTheme);
+  }
+
+  const savedTheme = localStorage.getItem("theme");
+  if (currentTheme) {
+    const lang = document.documentElement.lang as 'es' | 'en';
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      currentTheme.textContent = translations[lang].changeToLightMode;
+    } else if (savedTheme === "light") {
+      document.documentElement.classList.remove("dark");
+      currentTheme.textContent = translations[lang].changeToDarkMode;
+    } else {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("dark");
+        currentTheme.textContent = translations[lang].changeToLightMode;
+      } else {
+        document.documentElement.classList.remove("dark");
+        currentTheme.textContent = translations[lang].changeToDarkMode;
+      }
+    }
+  }
+
+  translatePage(document.documentElement.lang as 'es' | 'en');
+</script>
+
