@@ -2,11 +2,12 @@
 
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
-  <header class="font-semibold text-xl md:text-sm dark:text-white">
-    <div class="flex justify-center gap-3 md:gap-6 text-center">
-      <div class="mt-5">
+  <header class="font-semibold text-base sm:text-sm dark:text-white">
+    <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-center">
+      <div class="mt-4 sm:mt-5">
         <a
           href=""
           class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
@@ -15,7 +16,7 @@
           Experiencia
         </a>
       </div>
-      <div class="mt-5">
+      <div class="mt-4 sm:mt-5">
         <a
           href=""
           class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
@@ -24,7 +25,7 @@
           Proyectos
         </a>
       </div>
-      <div class="mt-5">
+      <div class="mt-4 sm:mt-5">
         <a
           href=""
           class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
@@ -33,7 +34,7 @@
           Sobre mí
         </a>
       </div>
-      <div class="mt-5">
+      <div class="mt-4 sm:mt-5">
         <a
           href=""
           class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300"
@@ -42,7 +43,7 @@
           Contacto
         </a>
       </div>
-      <div class="mt-5 relative">
+      <div class="mt-4 sm:mt-5 relative">
         <button
           id="language-toggle"
           class="dark:hover:text-sky-300 hover:text-sky-500 ease-in-out transition-all duration-300 flex items-center"
@@ -78,14 +79,14 @@
           >
         </div>
       </div>
-      <div class="mt-5">
+      <div class="mt-4 sm:mt-5">
         <button
           id="theme-toggle"
           class="dark:hover:text-sky-300 hover:text-sky-500 hover:scale-125 ease-in-out transition-all duration-300 flex items-center"
         >
           <span id="current-theme" class="sr-only" data-translate="changeTheme">Cambiar tema</span>
           <svg
-            class="w-5 h-5"
+            class="w-6 h-6 sm:w-5 sm:h-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -250,4 +251,3 @@
 
   translatePage(document.documentElement.lang as 'es' | 'en');
 </script>
-
