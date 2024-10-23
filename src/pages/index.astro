@@ -1,12 +1,14 @@
 ---
 import Header from "../components/Header.astro"
 import Hero from "../components/Hero.astro"
+import Proyectos from "../components/Proyectos.astro";
+import "../styles/global.css";
 ---
 
 
 <html class="dark">
   <head>
-    <title>Álvaro Fernández - Porfolio</title>
+    <title>Álvaro Fernández - Portafolio</title>
     <meta name="description" content="Portfolio de Álvaro Fernández Amaro" />
     <meta name="keywords" content="portfolio, Álvaro Fernández Amaro, fullstack, web, desarrollo web, programación, software libre" />
     <meta name="author" content="Álvaro Fernández Amaro" />
@@ -19,11 +21,9 @@ import Hero from "../components/Hero.astro"
     </header>
     <main>
       <Hero/>
+      <Proyectos />
     </main>
     <footer>
-      <!-- Contenido del pie de página -->
     </footer>
   </body>
 </html>
-
-
