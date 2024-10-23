@@ -1,0 +1,10 @@
+---
+import { proyectos } from '../lib/proyectos';
+import Proyecto from './Proyecto.astro';
+---
+
+<div class="flex">
+  {proyectos.map((proyecto) => (
+    <Proyecto key={proyecto.id} proyecto={proyecto} />
+  ))}
+</div>
