@@ -2,9 +2,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Onest:wght@700&display=swap');
 
 body {
-    font-family: 'Onest', sans-serif;
-    font-weight: bold;
-    max-width: 950px; 
-    margin: 0 auto;
-    padding: 0 20px;
+    font-family: 'Segoe UI', sans-serif;
 }
