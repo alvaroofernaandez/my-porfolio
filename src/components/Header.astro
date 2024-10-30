@@ -1,3 +1,6 @@
+---
+import ToggleMenu from "../components/ToggleMenu.astro";
+---
 <html lang="es">
 
 <head>
@@ -9,16 +12,18 @@
   <meta name="author" content="Álvaro Fernández Amaro" />
   <meta name="generator" content="Astro v2.8.1" />
 </head>
-
+  
   <header>
     <div class="bg-[#010409] w-full h-14 items-center">
       
       <div class="p-5 ml-[0.2rem] flex gap-1">
-        <button class="border-[#3b424a] border p-[0.4rem] rounded-md mr-5 hover:bg-[#0f141b] transition-all duration-300">
+        
+        <button onclick=toggleMenu() class="border-[#3b424a] border p-[0.4rem] rounded-md mr-5 hover:bg-[#0f141b] transition-all duration-300">
           <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-three-bars Button-visual">
             <path fill="#9198a1" d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z"></path>
           </svg>        
         </button>
+
         <svg
             viewBox="0 0 256 250"
             width="30"
@@ -74,7 +79,15 @@
         </a>
       </div>
     </div>
+  <ToggleMenu />
   </header>
+
+  <script>
+    function toggleMenu() {
+      
+    }
+
+  </script>
   
 </html>
 
