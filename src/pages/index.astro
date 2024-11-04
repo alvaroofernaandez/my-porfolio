@@ -1,5 +1,5 @@
 ---
-import Header from "../components/Header.astro"
+import Header from "../components/Header.jsx"
 import "../styles/global.css";
 ---
 
@@ -16,7 +16,7 @@ import "../styles/global.css";
   <body class="dark:bg-[#0d1117] bg-neutral-100 dark:text-white text-black">
     <header>
 
-      <Header/>
+      <Header client:load/>
     </header>
     <main>
     </main>
