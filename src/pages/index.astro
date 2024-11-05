@@ -1,59 +1,86 @@
 ---
-import Header from "../components/Header.jsx"
-import IconMedia from "../components/IconMedia.jsx"
+import Header from "../components/Header.jsx";
+import IconMedia from "../components/IconMedia.jsx";
 import "../styles/global.css";
 ---
-
 
 <html class="dark">
   <head>
     <title>Álvaro Fernández - Porfolio</title>
     <meta name="description" content="Portfolio de Álvaro Fernández Amaro" />
-    <meta name="keywords" content="portfolio, Álvaro Fernández Amaro, fullstack, web, desarrollo web, programación, software libre" />
+    <meta
+      name="keywords"
+      content="portfolio, Álvaro Fernández Amaro, fullstack, web, desarrollo web, programación, software libre"
+    />
     <meta name="author" content="Álvaro Fernández Amaro" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
   </head>
   <body class="dark:bg-[#0d1117] bg-neutral-100 dark:text-white text-black">
-
     <header>
-      <Header client:load/>
+      <Header client:load />
     </header>
 
-    <main>
-
-      <section id="side-profile" class="md:ml-[10rem] mt-10 ml-4 mr-4 md:mr-14">
-        <img src="/me.png" alt="" class="rounded-full w-[12rem] md:w-[19rem] mx-auto md:mx-0 border-2 border-[#2a2e33]">
-        <div class="ml-4 grid">
-        <h1 class="mt-4 text-2xl font-semibold text-center md:text-left">Álvaro Fernández Amaro</h1>
-        <a href="https://github.com/alvaroofernaandez" class="text-[#737b85] text-lg hover:text-slate-300 transition-all duration-300 text-center md:text-left">@alvaroofernaandez</a>
-      </div>
-
-      <div class="mt-4 text-center md:text-left">
-        <a href="/alvarofernandezamaro-cv.pdf" download="alvarofernandezamaro-cv.pdf" class="ml-4 cursor-pointer text-sm bg-[#212830] hover:bg-[#262c36] pr-[2rem] md:pr-[6rem] pl-[2rem] md:pl-[6rem] pt-1 pb-1 rounded-md border border-[#3d444d] transition-all duration-200">
-          Download CV
-        </a>
-        
-        <div class="mt-6 m-4 flex items-center justify-center md:justify-start gap-2">
-        <svg class="octicon octicon-location" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill="#9198a1" d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z"></path></svg>        
-        <span class="text-sm">Córdoba, Spain 🇪🇸</span>
+    <main class="grid gap-10 md:flex md:mx-32">
+      <section
+        id="side-profile"
+        class="mt-10 w-full md:w-[25%] flex flex-col items-center md:items-start md:ml-10"
+      >
+        <img
+          src="/me.png"
+          alt=""
+          class="rounded-full w-[12rem] md:w-[19rem] border-2 border-[#2a2e33]"
+        />
+        <div class="grid">
+          <h1 class="mt-4 text-2xl font-semibold text-center md:text-left">
+            Álvaro Fernández Amaro
+          </h1>
+          <a
+            href="https://github.com/alvaroofernaandez"
+            class="text-[#737b85] text-lg hover:text-slate-300 transition-all duration-300 text-center md:text-left"
+            >@alvaroofernaandez</a
+          >
         </div>
-      </div>
-      
-      <hr class="mt-4 ml-4 mr-4 md:mr-[64rem] bg-[#2f353d] border-0 h-[1px]">
 
-      <div class="text-center md:text-left md:ml-4">
-        <h2 class="mt-6 font-semibold">Social Media</h2>
-        <IconMedia />
-      </div>
+        <div class="mt-4 text-center md:text-left">
+          <a
+            href="/alvarofernandezamaro-cv.pdf"
+            download="alvarofernandezamaro-cv.pdf"
+            class="cursor-pointer text-sm bg-[#212830] hover:bg-[#262c36] pr-[2rem] md:pr-[7rem] pl-[2rem] md:pl-[7rem] pt-1 pb-1 rounded-md border border-[#3d444d] transition-all duration-200 text-center"
+          >
+            Download CV
+          </a>
+
+          <div
+            class="mt-6 flex items-center justify-center md:justify-start gap-2"
+          >
+            <svg
+              class="octicon octicon-location"
+              viewBox="0 0 16 16"
+              version="1.1"
+              width="16"
+              height="16"
+              aria-hidden="true"
+              ><path
+                fill="#9198a1"
+                d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z"
+              ></path></svg
+            >
+            <span class="text-sm">Córdoba, Spain 🇪🇸</span>
+          </div>
+        </div>
+
+        <hr class="mt-4 w-[20rem] bg-[#2f353d] border-0 h-[1px]" />
+
+        <div class="text-center md:text-left">
+          <h2 class="mt-6 font-semibold">Social Media</h2>
+          <IconMedia />
+        </div>
       </section>
 
-      <section id="readme">
-
+      <section id="readme" class="w-full md:w-[75%] h-screen mb-20 mx-auto md:mx-0 bg-[#0d1117] md:mr-10 border border-[#3d444d] rounded mt-8">
+        <h1 class="m-14 font-semibold text-xl md:text-3xl">Hi, my name is Álvaro 🙋🏻‍♂️</h1>
       </section>
-
     </main>
-    <footer>
-    </footer>
   </body>
 </html>
