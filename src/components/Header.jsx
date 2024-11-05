@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header>
-      <div id="menu" className={`${isMenuVisible ? "flex" : "hidden"} `}>
+      <div id="menu" className={`${isMenuVisible ? "fixed" : "hidden"} `}>
         <div className="bg-transparent">
           <nav
             className={`h-screen flex flex-col w-80 rounded-xl bg-[#151b23] border-r border-[#3d444d] p-4 justify-start absolute z-10 ${isMenuVisible ? "flex" : "hidden"}`}
